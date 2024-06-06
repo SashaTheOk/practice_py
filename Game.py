@@ -8,16 +8,40 @@
 SIZE_N = 5
 SIZE_M = 5
 
-world_map = ''
+char_x = 0
+char_y = 0
 
-for j in range (SIZE_M):
+exit_x = 4
+exit_y = 4
 
-    row = '|'
+while True:
 
-    for i in range(SIZE_N):
+    world_map = ''
 
-        row += ' |'
+    for j in range (SIZE_M):
 
-    world_map += f'{row}\n'
+        row = '|'
 
-print(world_map)
+        for i in range(SIZE_N):
+
+            if char_x == i and char_y == j:
+                row += 'X|'
+            elif exit_x == i and exit_y == j:
+                row += 'O|'
+            else:
+                row += ' |'
+
+        world_map += f'{row}\n'
+
+    print(world_map)
+
+    direction = input('Enter direction (w / d / a / s):')
+
+    if direction == 'w' and char_y > 0:
+        char_y -= 1
+    elif direction == 's' and char_y < SIZE_M - 1:
+        char_y += 1
+    elif direction == 'a' and char_x > 0:
+        char_x -= 1
+    elif direction == 'd' and char_x < SIZE_N -1:
+        char_x += 1

@@ -1,9 +1,4 @@
-'''
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-'''
+from random import randint
 
 SIZE_N = 5
 SIZE_M = 5
@@ -11,8 +6,8 @@ SIZE_M = 5
 char_x = 0
 char_y = 0
 
-exit_x = 4
-exit_y = 4
+exit_x = randint(0, SIZE_N-1)
+exit_y = randint(0, SIZE_M-1)
 
 while True:
 
@@ -34,6 +29,10 @@ while True:
         world_map += f'{row}\n'
 
     print(world_map)
+
+    if char_x == exit_x and char_y == exit_y:
+        print('You won!')
+        break
 
     direction = input('Enter direction (w / d / a / s):')
 

@@ -5,8 +5,9 @@ SIZE_M = 5
 
 char_x = 0
 char_y = 0
+char_sing = 'X'
 
-exit_x = randint(0, SIZE_N-1)
+exit_x = randint(0, SIZE_N-1) # в рандінт оствтенє число вкоючтко для того SIZE_N-1
 exit_y = randint(0, SIZE_M-1)
 
 while True:

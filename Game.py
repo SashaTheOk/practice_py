@@ -10,9 +10,15 @@ char_sing = 'X'
 exit_x = randint(0, SIZE_N-1) # в рандінт оствтенє число вкоючтко для того SIZE_N-1
 exit_y = randint(0, SIZE_M-1)
 
+turns = 0
+
 while True:
 
+    win_condition = char_x == exit_x and char_y == exit_y
     world_map = ''
+
+    if win_condition:
+        char_sing = 'W'
 
     for j in range (SIZE_M):
 
@@ -21,7 +27,7 @@ while True:
         for i in range(SIZE_N):
 
             if char_x == i and char_y == j:
-                row += 'X|'
+                row += f'{char_sing}|'
             elif exit_x == i and exit_y == j:
                 row += 'O|'
             else:
@@ -31,8 +37,8 @@ while True:
 
     print(world_map)
 
-    if char_x == exit_x and char_y == exit_y:
-        print('You won!')
+    if win_condition:
+        print(f'You won in {turns} turns!')
         break
 
     direction = input('Enter direction (w / d / a / s):')
@@ -45,3 +51,5 @@ while True:
         char_x -= 1
     elif direction == 'd' and char_x < SIZE_N -1:
         char_x += 1
+
+    turns += 1

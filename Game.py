@@ -7,7 +7,7 @@ char_x = 0
 char_y = 0
 char_sing = 'X'
 
-exit_x = randint(0, SIZE_N-1) # в рандінт оствтенє число вкоючтко для того SIZE_N-1
+exit_x = randint(0, SIZE_N-1)  # в рандінт остат. число включтно для того SIZE_N-1
 exit_y = randint(0, SIZE_M-1)
 
 turns = 0
@@ -20,7 +20,7 @@ while True:
     if win_condition:
         char_sing = 'W'
 
-    for j in range (SIZE_M):
+    for j in range(SIZE_M):
 
         row = '|'
 
@@ -49,7 +49,6 @@ while True:
         char_y += 1
     elif direction == 'a' and char_x > 0:
         char_x -= 1
-    elif direction == 'd' and char_x < SIZE_N -1:
+    elif direction == 'd' and char_x < SIZE_N - 1:
         char_x += 1
-
     turns += 1
